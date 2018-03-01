@@ -323,6 +323,12 @@
         
           
             <p><br><br>&emsp;&emsp; 基本按泉哥的《漏洞战争》相关章节进行调试分析，实际调试中发现配套资料中的explit.html以及相关的.mid需要修改才能在我的环境下利用成功。<br><br></p>
+<h1 id="修改原因"><a href="#修改原因" class="headerlink" title="修改原因:"></a>修改原因:</h1><blockquote>
+<p>在我的环境下，selob属性个数为64时，分配的间隔不是0x10 * 0x40 = 0x400</p>
+</blockquote>
+<h1 id="修改方法："><a href="#修改方法：" class="headerlink" title="修改方法："></a>修改方法：</h1><blockquote>
+<p>简单说就是讲selob的属性个数修改为60个，此时fengshui分配前面部分相邻两个buffer块的间隔为0x408，然后调试计算.mid音轨事件数据内容.</p>
+</blockquote>
 
           
         
